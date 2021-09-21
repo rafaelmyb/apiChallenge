@@ -1,38 +1,38 @@
-# instalar docker: Entre no site https://www.docker.com/get-started e baixe o Docker Desktop, se o seu sistema operacional for Windows, baixe o executável, next em todos os passos do instalador e provávelmente irá pedir para reiniciar o PC. Caso for no linux, selecione View Linus Engine e será redirecionado para outra página que você irá selecionar sua distro. Vocẽ será redirecionado novamente para outra página e lá irá clicar no último link da mesma, te levando para uma página com todas as instruções para instalar o docker, via terminal.
+### instalar docker: Entre no site https://www.docker.com/get-started e baixe o Docker Desktop, se o seu sistema operacional for Windows, baixe o executável, next em todos os passos do instalador e provávelmente irá pedir para reiniciar o PC. Caso for no linux, selecione View Linus Engine e será redirecionado para outra página que você irá selecionar sua distro. Vocẽ será redirecionado novamente para outra página e lá irá clicar no último link da mesma, te levando para uma página com todas as instruções para instalar o docker, via terminal.
 
-# Rode um docker -v no terminal e se mostrar a versão, é porque está pronto para uso.
+### Rode um docker -v no terminal e se mostrar a versão, é porque está pronto para uso.
 
-# Uma pequena observação é que os comandos abaixo possuem a palavra sudo no começo, essa palavra é responsável por dar a permissão de root (administrador) para a instalação e a distro do Ubuntu que estou utilizando, só instala com a permissão. Se o seu SO não precisa, então ignore a palavra e rode o restante dos comandos no terminal. 
+### Uma pequena observação é que os comandos abaixo possuem a palavra sudo no começo, essa palavra é responsável por dar a permissão de root (administrador) para a instalação e a distro do Ubuntu que estou utilizando, só instala com a permissão. Se o seu SO não precisa, então ignore a palavra e rode o restante dos comandos no terminal. 
 
-# Agora vamos baixar imagem do postgres, que é o banco de dados utilizado no projeto: "sudo docker pull postegres"
+### Agora vamos baixar imagem do postgres, que é o banco de dados utilizado no projeto: "sudo docker pull postegres"
 
-# criar container: "sudo docker run --name postgresApiChallenge -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres"
+### criar container: "sudo docker run --name postgresApiChallenge -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres"
 
-# startar container: "sudo docker start postgresApiChallenge"
+### startar container: "sudo docker start postgresApiChallenge"
 
-# entrar no docker: "sudo docker exec -it postgresApiChallenge bash"
+### entrar no docker: "sudo docker exec -it postgresApiChallenge bash"
 
-# logar no postgres: "psql -U root"
+### logar no postgres: "psql -U root"
 
-# criar o banco de dados com a primeira linha do schema.sql: "CREATE DATABASE apichallenge"
+### criar o banco de dados com a primeira linha do schema.sql: "CREATE DATABASE apichallenge"
 
-# conectar a base de dados: "\c apichallenge"
+### conectar a base de dados: "\c apichallenge"
 
-# copiar e colar código do schema.sql a partir de CREATE EXTESION
+### copiar e colar código do schema.sql a partir de CREATE EXTESION
 
-# após isso, iniciamos o projeto com "node src/index.js"
+### após isso, iniciamos o projeto com "node src/index.js"
 
-# Agora, em uma ferramente para testar APIs REST (no meu caso utilizei o insomnia), criamos uma request collection com o nome API Challenge. Dentro criamos uma nova pasta chamada Users, dentro de Users uma nova resquest Create User com o método POST e o body em JSON. Outra request Update User com o método PUT e o body em JSON. Outra request List Users com método GET. Outra request Get User com método GET e por fim, outra request Delete User com método DELETE.
+### Agora, em uma ferramente para testar APIs REST (no meu caso utilizei o insomnia), criamos uma request collection com o nome API Challenge. Dentro criamos uma nova pasta chamada Users, dentro de Users uma nova resquest Create User com o método POST e o body em JSON. Outra request Update User com o método PUT e o body em JSON. Outra request List Users com método GET. Outra request Get User com método GET e por fim, outra request Delete User com método DELETE.
 
-# Para criamos uma nova pasta para as categorias, podemos apenas duplicar a pasta Users e ir alterando apenas o nome de cada request.
+### Para criamos uma nova pasta para as categorias, podemos apenas duplicar a pasta Users e ir alterando apenas o nome de cada request.
 
-# O próximo passo é criar uma Base Environment, para colocarmos a porta no qual o servidor está rodando e não precisarmos repetir "http://localhost:3000" em todas as urls das rotas que criamos. Para isso, no insomnia logo abaixo do nome da Collection que estamos trabalhando está escrito No Environment, clicamos nele e clicamos em manage environment, dentro de Base Environment colocamos o código 
-# {
-#   "baseURL": "http://localhost:3000"
-# }
+### O próximo passo é criar uma Base Environment, para colocarmos a porta no qual o servidor está rodando e não precisarmos repetir "http://localhost:3000" em todas as urls das rotas que criamos. Para isso, no insomnia logo abaixo do nome da Collection que estamos trabalhando está escrito No Environment, clicamos nele e clicamos em manage environment, dentro de Base Environment colocamos o código 
+### {
+###   "baseURL": "http://localhost:3000"
+### }
 
-# E agora para aplicar, colocamos baseURL na url das rotas e selecionamos a opção que provavelmente vai aparecer "baseURL", ficando azul a escrita.
-# Na rota POST após a base url colocamos "/users" e dentro colocamos os dados do usuário, como nome, email e phone. Apertamos no botão send e se der um status code 200 é porque criamos o usuário.
+### E agora para aplicar, colocamos baseURL na url das rotas e selecionamos a opção que provavelmente vai aparecer "baseURL", ficando azul a escrita.
+### Na rota POST após a base url colocamos "/users" e dentro colocamos os dados do usuário, como nome, email e phone. Apertamos no botão send e se der um status code 200 é porque criamos o usuário.
 
 # Na rota PUT colocamos baseURL/users/o id do usuário que queremos alterar e no body os dados que iremos alterar
 
