@@ -4,16 +4,18 @@
 <p align="center">Esse projeto é uma API REST de um CRUD (create, read, update & delete) de usuários e categorias para a vaga de estágio como programador full stack na Kiral</p>
 
 <p align="center">
-  <a href="#tecnologias">Tecnologias</a> • 
+  <a href="#preRequisitos">Pré-Requisitos</a> •
   <a href="#instalacao">Instalação</a> •
-  <a href="comoUsar">Como usar</a>
+  <a href="#configuracao">Configuração</a> •
+  <a href="comoUsar">Como usar</a> •
+  <a href="#tecnologias">Tecnologias</a>
 </p>
 
 <h4 align="center">
   🔥 Projeto finalizado 🔥
 </h4>
 
-## Features
+<h2>Features</h2>
 
 - [x] Criação de usuário
 - [x] Listagem de usuários
@@ -27,7 +29,7 @@
 - [x] Alteração de dados da categoria
 - [x] Deleção de categoria
 
-## Pré-requisitos
+<h2 id="preRequisitos">Pré-requisitos</h2>
 
 <p>
   Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
@@ -37,7 +39,7 @@
   Além disto é bom ter um editor para trabalhar com o código, como o [VSCode](https://code.visualstudio.com/)
 </p>
 
-## Instalando o Docker
+<h2 id="instalacao">Instalando o Docker</h2>
 
 <p>
   Entre no site https://www.docker.com/get-started e baixe o Docker Desktop, se o seu sistema operacional for Windows, baixe o executável, next em todos os passos do instalador e provavelmente irá pedir para reiniciar o PC.
@@ -49,12 +51,12 @@
   Rode um docker -v no terminal e se mostrar a versão, é porque está pronto para uso.
 </p>
 
-### Observação ⚠️
+<h3>Observação ⚠️</h3>
 <p>
   Os comandos abaixo possuem a palavra "sudo" no começo, essa palavra é responsável por dar a permissão de root (administrador) para a instalação, pois a distro do Ubuntu que estou utilizando, só instala com permissão. Se o seu SO não precisa, então ignore a palavra em todos os comandos abaixo no terminal.
 </p>
 
-## Rodando e configurando o banco de dados no Docker
+<h2 id="configuracao">Rodando e configurando o banco de dados no Docker</h2>
 
 ```bash
 # Clone este repositório para baixar o projeto
@@ -91,7 +93,7 @@ $ node src/index.js
 # Vale lembrar que o servidor do projeto, deve estar rodando na porta 3000.
 ```
 
-## Testando o projeto
+<h2 id="comoUsar>Testando o projeto</h2>
 <p>
   Na pasta github do projeto, encontrará um arquivo com o nome "Insomnia_2021-09-22.json", esse arquivo contém todas as rotas para testar o crud, basta importa-lo dentro do Insomnia. Para isso, com o mesmo aberto, clique no botão Create e clique na opção + File, na caluna Import From. Busque pela pasta do projeto e importe o arquivo citado.
 
@@ -141,7 +143,7 @@ $ node src/index.js
 <hr>
 <br>
 
-### 🛠 Tecnologias
+<h3 id="tecnologias">🛠 Tecnologias</h3>
 
 As seguintes ferramentas foram utilizadas na construção do projeto:
 
