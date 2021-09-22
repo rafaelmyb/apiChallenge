@@ -7,7 +7,7 @@
   <a href="#preRequisitos">Pré-Requisitos</a> •
   <a href="#instalacao">Instalação</a> •
   <a href="#configuracao">Configuração</a> •
-  <a href="#como_usar">Como usar</a> •
+  <a href="#teste">Teste</a> •
   <a href="#tecnologias">Tecnologias</a>
 </p>
 
@@ -93,7 +93,7 @@ $ node src/index.js
 # Vale lembrar que o servidor do projeto, deve estar rodando na porta 3000.
 ```
 
-<h2 id="como_usar>Testando o projeto</h2>
+<h2 id="teste">Testando o projeto</h2>
 <p>
   Na pasta github do projeto, encontrará um arquivo com o nome "Insomnia_2021-09-22.json", esse arquivo contém todas as rotas para testar o crud, basta importa-lo dentro do Insomnia. Para isso, com o mesmo aberto, clique no botão Create e clique na opção + File, na caluna Import From. Busque pela pasta do projeto e importe o arquivo citado.
 
