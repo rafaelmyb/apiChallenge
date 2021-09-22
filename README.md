@@ -7,7 +7,7 @@
   <a href="#preRequisitos">Pré-Requisitos</a> •
   <a href="#instalacao">Instalação</a> •
   <a href="#configuracao">Configuração</a> •
-  <a href="comoUsar">Como usar</a> •
+  <a href="#comoUsar">Como usar</a> •
   <a href="#tecnologias">Tecnologias</a>
 </p>
 
