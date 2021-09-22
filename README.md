@@ -1,52 +1,155 @@
-# instalar docker: Entre no site https://www.docker.com/get-started e baixe o Docker Desktop, se o seu sistema operacional for Windows, baixe o executável, next em todos os passos do instalador e provávelmente irá pedir para reiniciar o PC. Caso for no linux, selecione View Linus Engine e será redirecionado para outra página que você irá selecionar sua distro. Vocẽ será redirecionado novamente para outra página e lá irá clicar no último link da mesma, te levando para uma página com todas as instruções para instalar o docker, via terminal.
+<h1 align="center">
+  <img alt="ApiChallenge" title="ApiChallenge" src="./github/logo.svg" />
+</h1>
+<p align="center">Esse projeto é uma API REST de um CRUD (create, read, update & delete) de usuários e categorias para a vaga de estágio como programador full stack na Kiral</p>
 
-# Rode um docker -v no terminal e se mostrar a versão, é porque está pronto para uso.
+<p align="center">
+  <a href="#tecnologias">Tecnologias</a> • 
+  <a href="#instalacao">Instalação</a> •
+  <a href="comoUsar">Como usar</a>
+</p>
 
-# Uma pequena observação é que os comandos abaixo possuem a palavra sudo no começo, essa palavra é responsável por dar a permissão de root (administrador) para a instalação e a distro do Ubuntu que estou utilizando, só instala com a permissão. Se o seu SO não precisa, então ignore a palavra e rode o restante dos comandos no terminal. 
+<h4 align="center">
+  🔥 Projeto finalizado 🔥
+</h4>
 
-# Agora vamos baixar imagem do postgres, que é o banco de dados utilizado no projeto: "sudo docker pull postegres"
+## Features
 
-# criar container: "sudo docker run --name postgresApiChallenge -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres"
+- [x] Criação de usuário
+- [x] Listagem de usuários
+- [x] Listagem de usuário
+- [x] Alteração de dados do usuário
+- [x] Deleção de usuário
 
-# startar container: "sudo docker start postgresApiChallenge"
+- [x] Criação de categoria
+- [x] Listagem de categorias
+- [x] Listagem de categoria
+- [x] Alteração de dados da categoria
+- [x] Deleção de categoria
 
-# entrar no docker: "sudo docker exec -it postgresApiChallenge bash"
+## Pré-requisitos
 
-# logar no postgres: "psql -U root"
+<p>
+  Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+  
+  [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [Insomnia](https://insomnia.rest/download) & [Docker](https://www.docker.com/get-started)
 
-# criar o banco de dados com a primeira linha do schema.sql: "CREATE DATABASE apichallenge"
+  Além disto é bom ter um editor para trabalhar com o código, como o [VSCode](https://code.visualstudio.com/)
+</p>
 
-# conectar a base de dados: "\c apichallenge"
+## Instalando o Docker
 
-# copiar e colar código do schema.sql a partir de CREATE EXTESION
+<p>
+  Entre no site https://www.docker.com/get-started e baixe o Docker Desktop, se o seu sistema operacional for Windows, baixe o executável, next em todos os passos do instalador e provavelmente irá pedir para reiniciar o PC.
+  <br>
+  
+  Caso for linux, selecione View Linus Engine e será redirecionado para outra página que você irá selecionar sua distro. Vocẽ será redirecionado novamente para outra página e lá irá clicar no último link da mesma, te levando para uma página com todas as instruções para instalar o docker, via terminal.
+  <br>
 
-# após isso, iniciamos o projeto com "node src/index.js"
+  Rode um docker -v no terminal e se mostrar a versão, é porque está pronto para uso.
+</p>
 
-# Agora, em uma ferramente para testar APIs REST (no meu caso utilizei o insomnia), criamos uma request collection com o nome API Challenge. Dentro criamos uma nova pasta chamada Users, dentro de Users uma nova resquest Create User com o método POST e o body em JSON. Outra request Update User com o método PUT e o body em JSON. Outra request List Users com método GET. Outra request Get User com método GET e por fim, outra request Delete User com método DELETE.
+### Observação ⚠️
+<p>
+  Os comandos abaixo possuem a palavra "sudo" no começo, essa palavra é responsável por dar a permissão de root (administrador) para a instalação, pois a distro do Ubuntu que estou utilizando, só instala com permissão. Se o seu SO não precisa, então ignore a palavra em todos os comandos abaixo no terminal.
+</p>
 
-# Para criamos uma nova pasta para as categorias, podemos apenas duplicar a pasta Users e ir alterando apenas o nome de cada request.
+## Rodando e configurando o banco de dados no Docker
 
-# O próximo passo é criar uma Base Environment, para colocarmos a porta no qual o servidor está rodando e não precisarmos repetir "http://localhost:3000" em todas as urls das rotas que criamos. Para isso, no insomnia logo abaixo do nome da Collection que estamos trabalhando está escrito No Environment, clicamos nele e clicamos em manage environment, dentro de Base Environment colocamos o código 
-# {
-#   "baseURL": "http://localhost:3000"
-# }
+```bash
+# Clone este repositório para baixar o projeto
+$ git clone https://github.com/rafaelmyb/apiChallenge.git
 
-# E agora para aplicar, colocamos baseURL na url das rotas e selecionamos a opção que provavelmente vai aparecer "baseURL", ficando azul a escrita.
-# Na rota POST após a base url colocamos "/users" e dentro colocamos os dados do usuário, como nome, email e phone. Apertamos no botão send e se der um status code 200 é porque criamos o usuário.
+# Instale as dependências
+$ yarn install
+  # ou
+$ npm install
 
-# Na rota PUT colocamos baseURL/users/o id do usuário que queremos alterar e no body os dados que iremos alterar
+# Baixe a imagem do postgres, que é o banco de dados utilizado no projeto
+$ sudo docker pull postegres
 
-# Na rota GET de List Users colocamos baseURL/users e damos um send, status code 200, vai mostrar os usuários existentes
+# Crie um container no docker com o postgres como banco
+$ sudo docker run --name postgresApiChallenge -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres
 
-# Na rota GET de Get User colocamos baseURL/users/o id do usuário que queremos listar os dados em especifico. Status code 200, vai mostrar o usuário com o id passado na url
+# No terminal do projeto, starte o container
+$ sudo docker exec -it postgresApiChallenge bash
 
-# Na rota DELETE colocamos baseURL/users/o id do usuário que queremos deletar. Status code 204 No Content, usuário deletado.
+# Entre no docker
+$ psql -U root
 
-# Agora fazemos os mesmos passos para Category, com baseURL/categories
-# Em categories nós passamos apenas o nome no body, já que é a única coluna da tabela.
+# Crie o banco de dados (se não criar na primeira vez, copie o mesmo código no schema.sql e cole no terminal, aparecerá CREATE DATABASE logo abaixo do código colado)
+$ CREATE DATABASE apichallenge;
 
-# Agora podemos associar uma category a um contato, basta fazer um update em algum contato, passando o category_id de alguma category e assim que listarmos os usuários, aquele que alteramos passará a ter um category_id e category_name.
+# Conecte no banco que criou
+$ \c apichallenge
 
-# Uma observação é que não podemos na atual etapa da API, excluir uma category que já esteja associada a algum user. Quando tentarmos deleta-la, irá dar um status code 500 internal server error e no terminal do vscode irá acusar no detail que o id que iamos excluir ainda está referenciado na tabela de users. Então para excluirmos essa category, nós alteramos o usuário e tiramos o category_id dele e agora conseguiremos excluir a category no DELETE.
+# Copie e cole o código do schema.sql a partir de CREATE EXTENSION
 
-# API REST de um CRUD de usuários criado. O desafio pedia apenas um CRUD de usuários, mas optei por colocar mais um CRUD de categorias para demonstrar a relação de chave estrangeira no banco de dados.
+# Após criado o banco, podemos abrir um novo terminal no vscode e rodar o projeto
+$ node src/index.js
+
+# Vale lembrar que o servidor do projeto, deve estar rodando na porta 3000.
+```
+
+## Testando o projeto
+<p>
+  Na pasta github do projeto, encontrará um arquivo com o nome "Insomnia_2021-09-22.json", esse arquivo contém todas as rotas para testar o crud, basta importa-lo dentro do Insomnia. Para isso, com o mesmo aberto, clique no botão Create e clique na opção + File, na caluna Import From. Busque pela pasta do projeto e importe o arquivo citado.
+
+  Dentro do Insomnia, crie primeiramente um novo user, basta no body do método POST, colocarmos as propriedades para esse user. Fique à vontade para criar mais usuários.
+
+  <img alt="createUser" title="createUser" src="./github/postUser.png">
+  <br>
+  <br>
+  
+  Para listar os users, basta enviar a requisição:
+
+  <img alt="getUsers" title="getUsers" src="./github/getUsers.png">
+  <br>
+  <br>
+
+  Para listar um usuário específico, pegue o id dele e coloque na url do Get User:
+
+  <img alt="getUser" title="getUser" src="./github/getUser.png">
+  <br>
+  <br>
+
+  Para alterar os dados de algum usuário em específico, pegue o id dele e coloque na url do Update User e faça as alterações desejadas no body:
+
+  <img alt="updateUser" title="updateUser" src="./github/updateUser.png">
+  <br>
+  <br>
+
+  Para deletar algum usuário, pegue o id dele e coloque na url do Delete User. Se o status code for 204 No content, o usuário foi deletado com sucesso.
+  
+  <img alt="deleteUser" title="deleteUser" src="./github/deleteUser.png">
+  <br>
+  <br>
+
+  Os mesmo métodos funcionam com a tabela de categorias. Para relacionar uma categoria com um usuário, basta fazer um update do usuário e colocar o id da categoria no category_id do usuário:
+
+  <img alt="categoryId" title="categoryId" src="./github/category_id.png">
+  <br>
+  <br>
+
+  Quando listar novamente os usuários, irá ver que o category_name foi adicionado:
+  <img alt="categoryIdUser" title="categoryIdUser" src="./github/category_idUser.png">
+  <br>
+  <br>
+  Uma observação é que não podemos na atual etapa da API, excluir uma category que já esteja associada a algum user. Quando tentarmos deleta-la, irá dar um status code 500 internal server error e no terminal do vscode irá acusar no detail do erro, que o id que iamos excluir ainda está referenciado na tabela de users. Então para excluirmos essa category, nós alteramos o usuário e tiramos o category_id dele.
+</p>
+
+<hr>
+<br>
+<p>
+  API REST de um CRUD de usuários criado. O desafio pedia apenas um CRUD de usuários, mas optei por colocar mais um CRUD de categorias para demonstrar a relação de chave estrangeira no banco de dados.  
+</p>
+
+<hr>
+<br>
+
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram utilizadas na construção do projeto:
+
+- [Node.js](https://nodejs.org/en/)
+- [Postgres](https://www.postgresql.org/)
