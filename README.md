@@ -99,42 +99,36 @@ $ node src/index.js
 
   <img alt="createUser" title="createUser" src="./github/postUser.png">
   <br>
-  <br>
   
   Para listar os users, basta enviar a requisição:
 
   <img alt="getUsers" title="getUsers" src="./github/getUsers.png">
-  <br>
   <br>
 
   Para listar um usuário específico, pegue o id dele e coloque na url do Get User:
 
   <img alt="getUser" title="getUser" src="./github/getUser.png">
   <br>
-  <br>
 
   Para alterar os dados de algum usuário em específico, pegue o id dele e coloque na url do Update User e faça as alterações desejadas no body:
 
   <img alt="updateUser" title="updateUser" src="./github/updateUser.png">
-  <br>
   <br>
 
   Para deletar algum usuário, pegue o id dele e coloque na url do Delete User. Se o status code for 204 No content, o usuário foi deletado com sucesso.
   
   <img alt="deleteUser" title="deleteUser" src="./github/deleteUser.png">
   <br>
-  <br>
 
   Os mesmo métodos funcionam com a tabela de categorias. Para relacionar uma categoria com um usuário, basta fazer um update do usuário e colocar o id da categoria no category_id do usuário:
 
   <img alt="categoryId" title="categoryId" src="./github/category_id.png">
   <br>
-  <br>
 
   Quando listar novamente os usuários, irá ver que o category_name foi adicionado:
   <img alt="categoryIdUser" title="categoryIdUser" src="./github/category_idUser.png">
   <br>
-  <br>
+  
   Uma observação é que não podemos na atual etapa da API, excluir uma category que já esteja associada a algum user. Quando tentarmos deleta-la, irá dar um status code 500 internal server error e no terminal do vscode irá acusar no detail do erro, que o id que iamos excluir ainda está referenciado na tabela de users. Então para excluirmos essa category, nós alteramos o usuário e tiramos o category_id dele.
 </p>
 
