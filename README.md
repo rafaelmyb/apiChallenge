@@ -48,7 +48,7 @@
   Caso for linux, selecione View Linus Engine e será redirecionado para outra página que você irá selecionar sua distro. Vocẽ será redirecionado novamente para outra página e lá irá clicar no último link da mesma, te levando para uma página com todas as instruções para instalar o docker, via terminal.
   <br>
 
-  Rode um docker -v no terminal e se mostrar a versão, é porque está pronto para uso.
+  Após instala-lo, rode um docker -v no terminal e se mostrar a versão, é porque está pronto para uso.
 </p>
 
 <h3>Observação ⚠️</h3>
