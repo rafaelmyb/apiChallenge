@@ -1,7 +1,7 @@
 <h1 align="center">
   <img alt="ApiChallenge" title="ApiChallenge" src="./github/logo.svg" />
 </h1>
-<p align="center">Esse projeto é uma API REST de um CRUD (create, read, update & delete) de usuários e categorias</p>
+<p align="center">Esse projeto é uma API REST de um CRUD (create, read, update & delete) de usuários e categorias, como desafio para vaga de programador full stack na Kiral</p>
 
 <p align="center">
   <a href="#preRequisitos">Pré-Requisitos</a> •
